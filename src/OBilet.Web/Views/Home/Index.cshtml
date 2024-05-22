@@ -1,0 +1,71 @@
+﻿@model IndexViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@section Styles
+{
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="~/css/home.css" rel="stylesheet" />
+}
+
+<div class="w-75 m-auto">
+    <div class="card">
+        <div class="card-header custom-header">
+        </div>
+        <div class="card-body">
+            <form class="p-4" asp-controller="Home" asp-action="Index" asp-antiforgery="true" method="post">
+                <div class="mb-3">
+
+                    <label class="d-block mb-2" asp-for="SourceId"> <i class="bi bi-geo-alt-fill text-muted"></i> Source</label>
+                    <select class="form-control" asp-for="SourceId" data-place-holder="Select something ...">
+                        <option value=""></option>
+                        <option value="01">Adana</option>
+                        <option value="01">Adiyaman</option>
+                        <option value="01">Ankara</option>
+                    </select>
+                    <span class="text-danger" asp-validation-for="SourceId"></span>
+                </div>
+                <div class="mb-3">
+                    <label class="d-block mb-2" asp-for="DestinationId"> <i class="bi bi-geo-alt-fill text-muted"></i> Destination</label>
+                    <select class="form-control" asp-for="DestinationId" style="max-width:100%">
+                        <option value=""></option>
+                        <option value="01">Adana</option>
+                        <option value="01">Adiyaman</option>
+                        <option value="01">Ankara</option>
+                    </select>
+                    <span class="text-danger" asp-validation-for="DestinationId"></span>
+                </div>
+                <div class="mb-3">
+                    <div class="d-flex">
+                        <div class="flex-grow-1">
+                            <label asp-for="Date" class="sr-only"><i class="bi bi-calendar text-muted"></i> Date</label>
+                        </div>
+                        <button type="button" class="btn btn-outline-secondary btn-sm btn-date-pick" onclick="setDate(false)">Today</button>
+                        <button type="button" class="btn btn-outline-danger btn-sm btn-date-pick" onclick="setDate(true)">Tomorrow</button>
+                    </div>
+
+                    <input type="date" class="form-control mt-2" asp-for="Date" min="@DateTime.Now.Date.ToString("yyyy-MM-dd")">
+                    <span class="text-danger" asp-validation-for="Date"></span>
+                </div>
+                <button type="submit" class="btn btn-primary d-block m-auto w-100 custom-header fw-bold">FIND TICKET</button>
+            </form>
+        </div>
+        <div class="card-footer border-top-0 mt-3 mb-1 bg-transparent">
+            <small class="text-muted" style="font-size:small">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            </small>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial">
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="~/js/home.js"></script>
+}

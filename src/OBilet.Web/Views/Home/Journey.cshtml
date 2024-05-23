@@ -48,7 +48,8 @@
                     <div class="card-body d-flex justify-content-between align-items-center">
                         <div>
                             <h6 class="card-title text-primary">KALKIŞ @item.DepartureTime?.ToString("HH:mm") &rarr; VARIŞ @item.ArrivalTime?.ToString("HH:mm")</h6>
-                            <small class="">@item.DepartureStop - @item.ArrivalStop</small>
+                            <small class="d-block">@item.DepartureStop - @item.ArrivalStop</small>
+                            <small class="text-muted d-block">@item.PartnerName</small>
                         </div>
                         <div>
                             <span class="badge bg-danger p-2 fs-6">@item.Price TL</span>

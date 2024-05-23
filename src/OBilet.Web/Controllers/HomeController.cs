@@ -60,11 +60,11 @@ public class HomeController : Controller
 
         var viewModel = new JourneyViewModel
         {
-            Date = model.Date,
             Origin = journeyInfo.Data.FirstOrDefault()?.Origin,
             Destination = journeyInfo.Data.FirstOrDefault()?.Destination,
             JourneyInfos = journeyInfo.Data.Select(x => new JourneyInfoDto
             {
+                PartnerName = x.PartnerName,
                 DepartureStop = x.Journey?.OriginStop,
                 ArrivalStop = x.Journey?.DestinationStop,
                 DepartureTime = x.Journey?.DepartureTime,

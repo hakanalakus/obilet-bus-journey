@@ -2,6 +2,7 @@
 {
     public class JourneyInfoDto
     {
+        public string PartnerName { get; set; }
         public float? Price { get; set; }
 
         public string DepartureStop { get; set; }

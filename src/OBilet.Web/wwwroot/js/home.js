@@ -22,10 +22,12 @@ function setDate(tomorrow) {
 }
 
 function changeValues() {
-    const src = $('#SourceId').val();
-    const dest = $('#DestinationId').val();
-    const optSrc = $('#SourceId').find(`option[value='${src}']`);
-    const optTarget = $('#DestinationId').find(`option[value='${dest}']`);
+
+    
+    const src = $('#SourceId');
+    const dest = $('#DestinationId');
+    const optSrc = src.find(`option[value='${src.val()}']`);
+    const optTarget = dest.find(`option[value='${dest.val()}']`);
 
     optSrc.detach();
     optTarget.detach();

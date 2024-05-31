@@ -77,13 +77,9 @@ public class HomeController : Controller
 
     }
 
-    public IActionResult Journey() 
-    {
-        return View();
-    }
 
     [HttpGet]
-    public async Task<IActionResult> GetBusLocationsAsync([FromServices]IHostEnvironment env,[FromQuery] string q)
+    public async Task<IActionResult> GetBusLocationsAsync([FromQuery] string q)
     {
         var locations = await _obiletHttpClient.Location.GetBusLocationsAsync(new GetBusLocationsRequest
         {

@@ -27,6 +27,7 @@ if (!app.Environment.IsDevelopment())
     app.UseExceptionHandler("/Home/Error");
 }
 
+app.UseStatusCodePagesWithReExecute("");
 app.UseStaticFiles();
 app.UseSession();
 app.UseRouting();

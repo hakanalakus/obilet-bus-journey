@@ -8,6 +8,12 @@
 {
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link href="~/css/home.css" rel="stylesheet" />
+    <style>
+        .btn-change{
+            border-radius:0.8rem;
+            padding:0.4rem;
+        }
+    </style>
 }
 
 <div class="w-75 m-auto">
@@ -23,6 +29,11 @@
                         <option value=""></option>
                     </select>
                     <span class="text-danger" asp-validation-for="SourceId"></span>
+                </div>
+                <div class="text-center mt-0">
+                    <button type="button" onclick="changeValues()" class="btn btn-sm btn-change btn-outline-secondary">
+                        <i class="bi bi-arrow-down-up"></i>
+                    </button>
                 </div>
                 <div class="mb-3">
                     <label class="d-block mb-2" asp-for="DestinationId"> <i class="bi bi-geo-alt-fill text-muted"></i> Destination</label>

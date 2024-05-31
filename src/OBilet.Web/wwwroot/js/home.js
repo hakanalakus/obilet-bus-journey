@@ -20,3 +20,18 @@ function setDate(tomorrow) {
         elDate.value = tomorrow.toISOString().split('T')[0];
     }
 }
+
+function changeValues() {
+    const src = $('#SourceId').val();
+    const dest = $('#DestinationId').val();
+    const optSrc = $('#SourceId').find(`option[value='${src}']`);
+    const optTarget = $('#DestinationId').find(`option[value='${dest}']`);
+
+    optSrc.detach();
+    optTarget.detach();
+
+    $('#SourceId').append(optTarget).trigger('change');
+    $('#DestinationId').append(optSrc).trigger('change');
+}
+
+
